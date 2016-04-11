@@ -4,7 +4,14 @@
   "description": "testing reactive programming with RxJs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rm -rf ./dist && mkdir ./dist",
+    "watch:scripts": "babel index.js --watch --out-file ./dist/index.js",
+    "build:scripts": "babel index.js --out-file ./dist/index.js",
+    "build:html": "cp index.html ./dist/index.html",
+    "build": "npm run build:scripts && npm run build:html",
+    "watch": "npm run watch:scripts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server ./dist"
   },
   "author": "Alexander Skrabl",
   "license": "ISC",
@@ -12,6 +19,7 @@
     "rx": "^4.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.7.5",
     "live-server": "^0.9.2"
   }
 }
