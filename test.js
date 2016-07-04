@@ -11,3 +11,18 @@ var calcNumber$ = number$
 calcNumber$.subscribe( a => {
     console.log(a);
 });
+
+// array
+var myArray = Rx.Observable.from([1, 2, 3, 4]);
+
+var myArraySubscription = myArray.subscribe(
+    (x) => {
+        console.log( 'next: ' + x );
+    },
+    (err) => {
+        console.log( 'error: ' + err );
+    },
+    () => {
+        console.log( 'complete' );
+    }
+);
